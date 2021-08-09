@@ -1,0 +1,6 @@
+rootProject.name = 'MyServicesForHttpClientTests'
+
+include(":fileUploader")
+include(":streaming")
+include(":functionalRouting")
+

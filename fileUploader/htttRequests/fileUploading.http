@@ -1,0 +1,7 @@
+GET http://localhost:8080/files/Измайлов_Александр_Александрович_ПД_Мир.docx
+
+###
+GET http://localhost:8080/files/image.png
+
+###
+GET http://localhost:8080/multipart/files/image.png

@@ -1,0 +1,21 @@
+###
+
+# curl -X GET "https://httpbin.org/image/svg" -H "accept: image/svg+xml"
+GET https://httpbin.org/image/svg
+accept: image/svg+xml
+
+###
+GET https://httpbin.org/image/webp
+
+###
+GET https://httpbin.org/image/png
+
+###
+GET https://picsum.photos/1000/2000
+
+###
+GET https://picsum.photos/1000/200
+
+###
+GET https://picsum.photos/150/150
+

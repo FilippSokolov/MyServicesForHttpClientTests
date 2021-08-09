@@ -1,0 +1,45 @@
+###
+GET http://localhost:8080/streaming/text
+
+###
+GET http://localhost:8080/streaming/text
+
+> {%
+ var i = 0
+ response.body.onEachLine(line => {
+     if (line !== "") {
+     i++
+     client.log(line);
+     if (i === 10) {
+         client.exit();
+     }
+     }
+ }, () => client.log("Finished!"))
+ client.log("inside subscriber");
+ %}
+
+###
+GET http://localhost:8080/streaming/json
+
+###
+GET http://localhost:8080/streaming/json
+
+> {%
+var i = 0;
+response.body.onEachLine((line, unsubscribe) => {
+  i++;
+  client.log(typeof line)
+  client.log(line.name);
+  client.test("my test " + i, () => {
+      client.log("inside test " + line);
+      client.assert(line.name !== undefined);
+  });
+  if (i === 10) {
+    unsubscribe()
+  }
+}, () => {
+    client.test("finished?", function () {
+        client.assert(i === 10);
+    })
+})
+%}
